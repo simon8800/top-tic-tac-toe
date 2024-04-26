@@ -32,18 +32,18 @@ function createGameboard() {
 // Win count
 // Either X or O
 function createPlayer(name) {
-  let token = ''
+  let playerToken = ''
 
   const getName = () => {
     return name;
   }
 
-  const setToken = () => {
-    token = 'o'
+  const setToken = (token) => {
+    playerToken = token
   }
 
   const getToken = () => {
-    return token;
+    return playerToken;
   }
 
   return {getName, setToken, getToken}

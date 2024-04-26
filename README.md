@@ -17,3 +17,5 @@
 - Board is visible at all times
 - Need to update the board whenever a player places their token
   - A token needs to be placed in a legal spot, meaning the spot isn't occupied by an 'X' or 'O'
+  - After a token is placed check the board for a win, if no win, continue playing
+  - If win, give a point to the winner and ask if the player would like to start a new game
