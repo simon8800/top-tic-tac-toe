@@ -6,6 +6,18 @@ function createGameboard() {
   let board = []
   let size = 3;
 
+  const boardMap = {
+    0: [0,0],
+    1: [0,1],
+    2: [0,2],
+    3: [1, 0],
+    4: [1, 1],
+    5: [1, 2],
+    6: [2, 0],
+    7: [2, 1],
+    8: [2, 2]
+  }
+
   // create board of size 3
   for (let i = 0; i < 3; i++) {
     let row = []
@@ -13,6 +25,16 @@ function createGameboard() {
       row.push('.');
     }
     board.push(row);
+  }
+
+  const placeToken = (position) => {
+
+  }
+
+  const validPlacement = (position) => {
+    let valid = true;
+
+    return valid;
   }
 
   const win = (lastPosition) => {
@@ -31,22 +53,26 @@ function createGameboard() {
 // Player object
 // Win count
 // Either X or O
-function createPlayer(name) {
-  let playerToken = ''
+function createPlayer(name, token) {
+  let points = 0;
 
   const getName = () => {
     return name;
   }
 
-  const setToken = (token) => {
-    playerToken = token
-  }
-
   const getToken = () => {
-    return playerToken;
+    return token;
   }
 
-  return {getName, setToken, getToken}
+  const addPoint = () => {
+    points += 1;
+  }
+
+  const getPoint = () => {
+    return points;
+  }
+
+  return {getName, getToken, addPoint, getPoint}
 }
 
 
@@ -54,6 +80,27 @@ function createPlayer(name) {
 // Who's turn is it?
 // Total games played
 // First to n games wins
-const game = (function createGame() {
+const gameController = (function createGameController() {
+  let playerOne;
+  let playerTwo;
+  let activePlayer;
+  // get token choice
+  const createPlayers = (name, token) => {
+    playerOne = createPlayer(name, token);
+    let computerToken = token == 'O' ? 'X' : 'O';
+    playerTwo = createPlayer('CPU', computerToken);
+    activePlayer = playerOne.getToken == 'X' ? playerOne : playerTwo;
+  }
+  
+  let board = createBoard();
+
+  // playRound; get user input
+  const playRound = (position) => {
+    // if activePlayer is playerTwo, choose for them
+    if (activePlayer == playerTwo) {
+      
+    }
+  }
+  
   return {}
 })
