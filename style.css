@@ -1,0 +1,32 @@
+.container {
+    display: flex;
+}
+
+.current-player {
+}
+
+.scores {
+    
+}
+
+.ttt-board {
+    width: 500px;
+    height: 500px;
+    margin: 0 auto;
+    margin-top: 3em;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    border: 1px solid black;
+}
+
+.cell {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid black;
+}
+
+.cell:hover {
+    background-color:  #FF5733;
+}
