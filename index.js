@@ -1,5 +1,7 @@
 function createGameboard() {
   let board = [];
+
+  // Maps positions to board coordinates
   const boardMap = {
     0: [0, 0],
     1: [0, 1],
@@ -11,6 +13,7 @@ function createGameboard() {
     7: [2, 1],
     8: [2, 2],
   };
+
   const winConditions = [
     [0, 1, 2], // rows
     [3, 4, 5],
