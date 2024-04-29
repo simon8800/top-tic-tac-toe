@@ -1,3 +1,5 @@
+let cellElements = document.querySelectorAll(".cell");
+
 function createGameboard() {
   let board = [];
 
@@ -125,9 +127,7 @@ function createGameController() {
   let board = createGameboard();
 
   const createPlayers = (name, token) => {
-    let playerName = prompt("Enter player name: ");
-    let playerToken = prompt("Enter your token (X or O): ");
-    playerOne = createPlayer(playerName, playerToken);
+    playerOne = createPlayer("Player One", "X");
     let computerToken = playerToken == "O" ? "X" : "O";
     playerTwo = createPlayer("CPU", computerToken);
     activePlayer = playerOne.getToken() == "X" ? playerOne : playerTwo;
@@ -142,12 +142,6 @@ function createGameController() {
   // playRound; get user input
   const playRound = (desiredPosition) => {
     let position = desiredPosition;
-    console.log(activePlayer.getName());
-
-    // ask if it's playerOne's turn
-    if (activePlayer == playerOne) {
-      position = prompt("Enter position (0-8): ");
-    }
 
     // 1. Check if position is valid
     // if activePlayer is playerTwo, choose for them
@@ -186,3 +180,10 @@ function createGameController() {
 }
 
 let game = createGameController();
+
+cellElements.forEach((cell) => {
+  cell.onclick = function () {
+    let position = parseInt(cell.dataset.position);
+    game.playRound(position);
+  };
+});

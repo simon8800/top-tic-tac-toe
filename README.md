@@ -19,3 +19,20 @@
   - A token needs to be placed in a legal spot, meaning the spot isn't occupied by an 'X' or 'O'
   - After a token is placed check the board for a win, if no win, continue playing
   - If win, give a point to the winner and ask if the player would like to start a new game
+- The gameboard is responsible for:
+  - Accepts token and position
+  - Validates token placement
+  - Track token positions
+  - Hold win conditions
+- The player is responsible for:
+  - Score
+  - Token
+- The gameController is responsible for:
+  - Track activePlayer
+  - Start next round
+  - Clearing board if there's a win or draw
+
+  ## To-do
+
+  - [X] Check if win
+  - [] Check if draw
