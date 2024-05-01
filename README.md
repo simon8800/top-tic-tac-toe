@@ -35,4 +35,4 @@
   ## To-do
 
   - [X] Rewrite game logic
-  - [] Have cells respond to being clicked on
+  - [X] Have cells respond to being clicked on
