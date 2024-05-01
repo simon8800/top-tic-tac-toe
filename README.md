@@ -21,8 +21,8 @@
   - If win, give a point to the winner and ask if the player would like to start a new game
 - The gameboard is responsible for:
   - Accepts token and position
-  - Validates token placement
   - Track token positions
+  - Validates token placement
   - Hold win conditions
 - The player is responsible for:
   - Score
@@ -34,5 +34,4 @@
 
   ## To-do
 
-  - [X] Check if win
-  - [] Check if draw
+  - [] Rewrite game logic...

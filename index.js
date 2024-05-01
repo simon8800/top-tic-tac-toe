@@ -27,13 +27,14 @@ function createGameboard() {
     [2, 4, 6],
   ];
 
+  let count = 0;
+
   // create board of size 3
   for (let i = 0; i < 3; i++) {
     let row = [];
     for (let j = 0; j < 3; j++) {
       row.push(".");
     }
-    board.push(row);
   }
 
   const placeToken = (position, token) => {
@@ -41,7 +42,6 @@ function createGameboard() {
     let row = coordinates[0];
     let column = coordinates[1];
     board[row][column] = token;
-    console.log(board);
   };
 
   const isValidPlacement = (position) => {
@@ -128,7 +128,7 @@ function createGameController() {
 
   const createPlayers = (name, token) => {
     playerOne = createPlayer("Player One", "X");
-    let computerToken = playerToken == "O" ? "X" : "O";
+    let computerToken = playerOne.getToken() == "O" ? "X" : "O";
     playerTwo = createPlayer("CPU", computerToken);
     activePlayer = playerOne.getToken() == "X" ? playerOne : playerTwo;
   };
@@ -174,12 +174,16 @@ function createGameController() {
 
     // 4. Switch activePlayer
     activePlayer = activePlayer == playerOne ? playerTwo : playerOne;
+    if (activePlayer == playerTwo) {
+      playRound();
+    }
   };
 
   return { playRound, createPlayers };
 }
 
 let game = createGameController();
+game.createPlayers();
 
 cellElements.forEach((cell) => {
   cell.onclick = function () {
